@@ -1,0 +1,27 @@
+<div class="row">
+    <p ng-if="!isLoaded">Loading...</p>
+    <div class="product-details" ng-if="isLoaded">
+        <h1>{{product.name}}</h1>
+        <img src="{{product.mediumImage}}" alt="" class="pull-left">
+        <h3>Details</h3>
+        <p><strong>Price:</strong> {{product.salePrice | currency}}</p>
+        <p><strong>Brand:</strong> {{product.brandName}}</p>
+        <p><strong>Model #:</strong> {{product.modelNumber}}</p>
+        <p><strong>Description: </strong> {{product.shortDescription}}</p>
+        <p><a ng-click="getReviews()">Reviews</a></p>
+        <table class="table" ng-if="reviews.length">
+            <thead>
+                <th>Overall Rating</th>
+                <th>Title</th>
+                <th>Review Text</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="review in reviews">
+                    <td>{{review.overallRating.rating}}</td>
+                    <td>{{review.title}}</td>
+                    <td>{{review.reviewText}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -15,17 +15,18 @@ angular
     'ngRoute',
     'ngSanitize'
   ])
+  .constant('apiKeys', {
+    'walmart': '62j6vdngxjwdyjbj54kr4yh9'
+  })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/products.html',
-        controller: 'ProductsCtrl',
-        controllerAs: 'products'
+        controller: 'ProductsCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/products/:productId', {
+        templateUrl: 'views/product.html',
+        controller: 'ProductCtrl'
       })
       .otherwise({
         redirectTo: '/'
